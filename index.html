@@ -5,10 +5,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>City Weather Predictor</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&family=Merriweather:wght@700&display=swap"
-      rel="stylesheet" />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/jass.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <Header>
@@ -17,45 +18,47 @@
 
 <body>
     <div class="search">
-        <h1>Search for a City:</h1>
-        <input id= "searchBar" type="text" placeholder="Atlanta">
-        <button id = "searchNow">Search</button>
+        <div class="border">
+            <h1 id= "citySearch">Search for a City:</h1>
+            <input id= "searchBar" type="text" placeholder="Atlanta">
+            <button id = "searchNow">Search</button>
+        </div>
         <div id="searchHistory"></div>
     </div>
 
     <div class="currentDay">
-        <h1 id="cityDate"></h1>
-        <ul id="conditions">
-            <ol>Temp: <span class="temperature"></span></ol>
-            <ol>Wind: <span class="wind"></span></ol>
-            <ol>Humidity: <span class="humidity"></span></ol>
-            <ol>UV Index: <span class="uv"></span></ol>
-        </ul>
+        <div id="cityDate">Pick a City <span id= "widget1"></span></div>
+        <div id="conditions">
+            <p>Temp: <span class="temperature"></span></p>
+            <p>Wind: <span class="wind"></span></p>
+            <p>Humidity: <span class="humidity"></span></p>
+            <p>UV Index: <span class="uv"></span></p>
+        </div>
     </div>
 
     <div class= "forcast">
-        <div class = "day2">
+        <div id = "day2" class = "cards">
             <h2 id = "day2nd"></h2>
             <p id="widget2"></p>
             <p>Temp: <span id="temp2"></span></p>
             <p>Wind: <span id="wind2"></span></p>
             <p>Humidity: <span id="humidity2"></span></p>
         </div>
-        <div class = "day3">
+        <div id = "day3" class = "cards">
             <h2 id = "day3rd"></h2>
             <p id="widget3"></p>
             <p>Temp: <span id="temp3"></span></p>
             <p>Wind: <span id="wind3"></span></p>
             <p>Humidity: <span id="humidity3"></span></p>
         </div>
-        <div class = "day4">
+        <div id = "day4" class = "cards">
             <h2 id = "day4th"></h2>
             <p id="widget4"></p>
             <p>Temp: <span id="temp4"></span></p>
             <p>Wind: <span id="wind4"></span></p>
             <p>Humidity: <span id="humidity4"></span></p>
         </div>
-        <div class = "day5">
+        <div id = "day5" class = "cards">
             <h2 id = "day5th"></h2>
             <p id="widget5"></p>
             <p>Temp: <span id="temp5"></span></p>
