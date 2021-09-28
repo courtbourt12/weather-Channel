@@ -9,8 +9,6 @@ header {
     font-size: 22px;
     font-weight: bolder;
     font-family: 'Montserrat', sans-serif;
-    /* grid-column: 1 / 6;
-    grid-row: 1; */
 }
 
 #searchHistory {
@@ -18,10 +16,7 @@ header {
 } 
 
 .search {
-    /* grid-column: 1;
-    grid-row: 2 / 2; */
     text-align: center;
-        
 }
 
 #citySearch {
@@ -60,21 +55,18 @@ header {
 }
 
 
-.wrapper {
-    display: flex;
-    
-}
-
 .currentDay {
     border: 1px solid black;
     text-align: left;
     padding-left: 5px;
-    padding-right: 64%;
+    padding-right: 68%;
     padding-top: 5px; 
     margin-top: 15px;
     display: inline-block;
-    /* grid-column: 2 / 5;
-    grid-row: 2; */
+    position: absolute;
+    top: 60px;
+    right: 35px;
+    height: 200px;
 }
 
 #cityDate {
@@ -90,12 +82,27 @@ header {
 
 .cards {
     border: 1px solid black;
+    width: 187px;
+    margin-right: 20px;
+    padding-left: 5px;
+    height: 200px;
+    color: white;
+    background-color: #36096d;
 }
 
 .uv {
     padding: 2px;
     border: 1px solid transparent;
     border-radius: 4px;
+}
+
+.forcast {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    position: absolute;
+    right: 15px;
+    top: 300px;
 }
 
 
