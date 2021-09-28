@@ -8,7 +8,7 @@ var date;
 var state;
 var country;
 var humidity;
-var UVIndex;
+var UV = document.querySelector(".uv");
 var windSpeed;
 
 // Setting up the city search.
@@ -50,7 +50,15 @@ function cityLookup() {
                 document.querySelector(".temperature").innerHTML = data.current.temp + "°F";
                 document.querySelector(".wind").innerHTML = data.current.wind_speed + "mph";
                 document.querySelector(".humidity").innerHTML = data.current.humidity + "%";
-                document.querySelector(".uv").innerHTML = data.current.uvi;
+                UV.innerHTML = data.current.uvi;
+                UVColor = data.current.uvi;
+                    if (UVColor<2.01) {
+                        UV.style.backgroundColor="green";
+                    }else if (UV<5.01) {
+                            UV.style.backgroundColor="yellow";
+                    }else {
+                        UV.style.backgroundColor="red";
+                    }
                 
                 document.querySelector("#temp2").innerHTML = data.daily[0].temp.day + "°F";
                 document.querySelector("#wind2").innerHTML = data.daily[0].wind_speed + "mph";
