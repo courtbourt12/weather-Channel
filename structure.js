@@ -32,6 +32,11 @@ document.querySelector("#day4th").innerHTML = "Day 4";
 document.querySelector("#day5th").innerHTML = "Day 5";
 document.querySelector("#day6th").innerHTML = "Day 6";
 
+// var classes = document.querySelector(".readyToGo");
+// var lastHistory = localStorage.getItem("search");
+// classes.innerHTML(lastHistory);
+// document.querySelector("ul").appendChild(history);
+
 // Setting up the city search.
 
 var citySearch = document.querySelector("#searchBar");
@@ -39,9 +44,15 @@ var citySearch = document.querySelector("#searchBar");
 var clickHere = document.getElementById("searchNow");
 
 function cityLookup() {
-  
+    
     var citySelected = document.querySelector("#searchBar").value;
     var geocoding = "http://api.openweathermap.org/geo/1.0/direct?q=" + citySelected + "&appid=" + APIKey;
+    
+    var history = document.createElement("ol");
+    history.classList.add("readyToGo");
+    history.appendChild(document.createTextNode(citySelected));
+    document.querySelector("ul").appendChild(history);
+    localStorage.setItem("search", citySelected);
 
     document.querySelector("#cityDate").innerHTML=citySelected + " - " + "(" +today+ ")";
     document.querySelector("#day2nd").innerHTML = tomorrow;

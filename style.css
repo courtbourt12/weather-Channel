@@ -12,11 +12,23 @@ header {
 }
 
 #searchHistory {
-    height: 550px;
+    width: 244px;
+    background-color: gray;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+
 } 
+
+.border2 {
+    border-bottom: 2px solid gray;
+    padding-bottom: 20px;
+}
 
 .search {
     text-align: center;
+
 }
 
 #citySearch {
@@ -38,7 +50,6 @@ header {
 }
 
 .border {
-    border-bottom: 2px solid gray;
     position: absolute;
     width: 250px;
 }
