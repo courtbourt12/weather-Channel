@@ -1,4 +1,18 @@
 var APIKey = "62af3ed8671f158493e172339537199e";
+var currentDate = moment();
+var today = currentDate.format("M/DD/YYYY");
+var day2 = moment().add(1, "days");
+var tomorrow = day2.format("M/DD/YYYY");
+var day3 = moment().add(2, "days");
+var tomorrow2 = day3.format("M/DD/YYYY");
+var day4 = moment().add(3, "days");
+var tomorrow3 = day4.format("M/DD/YYYY");
+var day5 = moment().add(4, "days");
+var tomorrow4 = day5.format("M/DD/YYYY");
+var day6 = moment().add(5, "days");
+var tomorrow5 = day6.format("M/DD/YYYY");
+
+
 
 // Variables for API calls.
 
@@ -11,6 +25,13 @@ var humidity;
 var UV = document.querySelector(".uv");
 var windSpeed;
 
+document.querySelector("#cityDate").innerHTML = "City - Current Day";
+document.querySelector("#day2nd").innerHTML = "Day 2";
+document.querySelector("#day3rd").innerHTML = "Day 3";
+document.querySelector("#day4th").innerHTML = "Day 4";
+document.querySelector("#day5th").innerHTML = "Day 5";
+document.querySelector("#day6th").innerHTML = "Day 6";
+
 // Setting up the city search.
 
 var citySearch = document.querySelector("#searchBar");
@@ -22,6 +43,12 @@ function cityLookup() {
     var citySelected = document.querySelector("#searchBar").value;
     var geocoding = "http://api.openweathermap.org/geo/1.0/direct?q=" + citySelected + "&appid=" + APIKey;
 
+    document.querySelector("#cityDate").innerHTML=citySelected + " - " + "(" +today+ ")";
+    document.querySelector("#day2nd").innerHTML = tomorrow;
+    document.querySelector("#day3rd").innerHTML = tomorrow2;
+    document.querySelector("#day4th").innerHTML = tomorrow3;
+    document.querySelector("#day5th").innerHTML = tomorrow4;
+    document.querySelector("#day6th").innerHTML = tomorrow5;
     console.log(geocoding);
 
     fetch(geocoding)
@@ -75,6 +102,10 @@ function cityLookup() {
                 document.querySelector("#temp5").innerHTML = data.daily[3].temp.day + "°F";
                 document.querySelector("#wind5").innerHTML = data.daily[3].wind_speed + "mph";
                 document.querySelector("#humidity5").innerHTML = data.daily[3].humidity + "%";
+
+                document.querySelector("#temp6").innerHTML = data.daily[4].temp.day + "°F";
+                document.querySelector("#wind6").innerHTML = data.daily[4].wind_speed + "mph";
+                document.querySelector("#humidity6").innerHTML = data.daily[4].humidity + "%";
 
                    
                })
