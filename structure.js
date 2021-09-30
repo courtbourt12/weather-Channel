@@ -54,36 +54,46 @@ function cityLookup() {
     document.querySelector("ul").appendChild(history);
     localStorage.setItem("search", citySelected);
 
-    document.querySelector("#cityDate").innerHTML=citySelected + " - " + "(" +today+ ")";
-    document.querySelector("#day2nd").innerHTML = tomorrow;
-    document.querySelector("#day3rd").innerHTML = tomorrow2;
-    document.querySelector("#day4th").innerHTML = tomorrow3;
-    document.querySelector("#day5th").innerHTML = tomorrow4;
-    document.querySelector("#day6th").innerHTML = tomorrow5;
+    // document.querySelector("#cityDate").innerHTML=citySelected + " - " + "(" +today+ ")";
     console.log(geocoding);
-
+    
     fetch(geocoding)
     .then(function(response) {
-      return (response.json())
+        return (response.json())
     }).then(function(data) {
         console.log(data);
         var latitude = data[0].lat;
         var longitude = data[0].lon;
-    
+        
         console.log(latitude);
         console.log(longitude);
-
+        
         weatherForcast();
-
+        
         function weatherForcast() {
-        
-           var weatherInfo = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&units=imperial&appid=" + APIKey;
-        
-               fetch(weatherInfo)
-               .then(function(response) {
-                   return (response.json())
-               }).then(function(data) {
-                   console.log(data);
+            
+            var weatherInfo = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&units=imperial&appid=" + APIKey;
+            
+            fetch(weatherInfo)
+            .then(function(response) {
+                return (response.json())
+            }).then(function(data) {data.current.weather
+                console.log(data);
+                theWidget1= data.current.weather[0].icon;
+                theWidget2= data.daily[0].weather[0].icon;
+                theWidget3= data.daily[1].weather[0].icon;
+                theWidget4= data.daily[2].weather[0].icon;
+                theWidget5= data.daily[3].weather[0].icon;
+                theWidget6= data.daily[4].weather[0].icon;
+
+                document.querySelector("#day2nd").innerHTML = tomorrow+ "<image src= 'http://openweathermap.org/img/wn/" + theWidget1 +"@2x.png'>";
+                document.querySelector("#day3rd").innerHTML = tomorrow2+ "<image src= 'http://openweathermap.org/img/wn/" + theWidget2 +"@2x.png'>";
+                document.querySelector("#day4th").innerHTML = tomorrow3+ "<image src= 'http://openweathermap.org/img/wn/" + theWidget3 +"@2x.png'>";
+                document.querySelector("#day5th").innerHTML = tomorrow4+ "<image src= 'http://openweathermap.org/img/wn/" + theWidget4 +"@2x.png'>";
+                document.querySelector("#day6th").innerHTML = tomorrow5+ "<image src= 'http://openweathermap.org/img/wn/" + theWidget5 +"@2x.png'>";
+
+                console.log(theWidget1);
+                document.getElementById("cityDate").innerHTML = citySelected + " - " + "(" +today+ ") <image src= 'http://openweathermap.org/img/wn/" + theWidget1 +"@2x.png'>";
                 
                 document.querySelector(".temperature").innerHTML = data.current.temp + "°F";
                 document.querySelector(".wind").innerHTML = data.current.wind_speed + "mph";

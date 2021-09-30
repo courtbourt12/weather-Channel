@@ -90,6 +90,14 @@ header {
     font-size: 16px;
     margin-left: 5px;
 }
+#cityDate img {
+    height: 50px;
+    width: 50px;
+}
+#day2 img, #day3 img, #day4 img, #day5 img,#day6 img {
+    height: 35px;
+    width: 35px;
+}
 
 .cards {
     border: 1px solid black;
