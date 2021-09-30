@@ -46,7 +46,7 @@ var clickHere = document.getElementById("searchNow");
 function cityLookup() {
     
     var citySelected = document.querySelector("#searchBar").value;
-    var geocoding = "http://api.openweathermap.org/geo/1.0/direct?q=" + citySelected + "&appid=" + APIKey;
+    var geocoding = "https://api.openweathermap.org/geo/1.0/direct?q=" + citySelected + "&appid=" + APIKey;
     
     var history = document.createElement("ol");
     history.classList.add("readyToGo");
@@ -77,7 +77,7 @@ function cityLookup() {
 
         function weatherForcast() {
         
-           var weatherInfo = "http://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&units=imperial&appid=" + APIKey;
+           var weatherInfo = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&units=imperial&appid=" + APIKey;
         
                fetch(weatherInfo)
                .then(function(response) {
