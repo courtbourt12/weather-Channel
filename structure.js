@@ -46,7 +46,7 @@ var clickHere = document.getElementById("searchNow");
 function cityLookup() {
     
     var citySelected = document.querySelector("#searchBar").value;
-    var geocoding = "http://api.openweathermap.org/geo/1.0/direct?q=" + citySelected + "&appid=" + APIKey;
+    var geocoding = "https://api.openweathermap.org/geo/1.0/direct?q=" + citySelected + "&appid=" + APIKey;
     
     var history = document.createElement("ol");
     history.classList.add("readyToGo");
