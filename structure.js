@@ -40,19 +40,34 @@ document.querySelector("#day6th").innerHTML = "Day 6";
 // Setting up the city search.
 
 var citySearch = document.querySelector("#searchBar");
-
+var historyLog = document.getElementById("searchHistory");
 var clickHere = document.getElementById("searchNow");
+
+var cityHistory = JSON.parse(localStorage.getItem("Cities")) || [];
+for (i=0; i< cityHistory.length ; i++) {
+    var reSearch = document.createElement("ol");
+    reSearch.setAttribute("class", "reSearchButton");
+    reSearch.append(cityHistory[i]);
+    console.log(reSearch);
+    historyLog.append(reSearch);
+}
 
 function cityLookup() {
     
     var citySelected = document.querySelector("#searchBar").value;
     var geocoding = "https://api.openweathermap.org/geo/1.0/direct?q=" + citySelected + "&appid=" + APIKey;
     
-    var history = document.createElement("ol");
-    history.classList.add("readyToGo");
-    history.appendChild(document.createTextNode(citySelected));
-    document.querySelector("ul").appendChild(history);
-    localStorage.setItem("search", citySelected);
+   cityHistory.push(citySelected);
+   var currentSearch = document.createElement("ol");
+   currentSearch.setAttribute("class", "reSearchButton");
+   currentSearch.append(citySelected);
+   historyLog.append(currentSearch);
+console.log(cityHistory.length);
+    if (cityHistory.length>6) {    
+        cityHistory.splice(0,1);
+    };
+
+    localStorage.setItem("Cities", JSON.stringify(cityHistory));
 
     // document.querySelector("#cityDate").innerHTML=citySelected + " - " + "(" +today+ ")";
     console.log(geocoding);
@@ -137,5 +152,3 @@ function cityLookup() {
 };
 
  clickHere.addEventListener("click", cityLookup);
-
- // 

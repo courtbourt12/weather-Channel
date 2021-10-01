@@ -13,13 +13,16 @@ header {
 
 #searchHistory {
     width: 244px;
-    background-color: gray;
-    height: 30px;
     display: inline-block;
     text-align: center;
-    margin-top: 20px;
-
+    margin-top: 20px; 
 } 
+
+.reSearchButton {
+background-color: gray;
+color:black;
+height: 30px;
+}
 
 .border2 {
     border-bottom: 2px solid gray;
